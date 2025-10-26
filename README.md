@@ -22,22 +22,20 @@ Project Structure
 ├── results/            # Evaluation results, logs, and comparative outputs
 ├── tests/              # Unit and integration tests
 └── docs/               # Detailed methodology, findings, and setup guides
+
 Key Components
 Tasks (src/tasks/)
-
 Multi-Stage Situational Awareness Test (MSAT): Three-phase evaluation measuring identity baseline, contextual awareness, and action consistency
 Behavioral Divergence Detection: Paired-context scenarios to identify capability concealment
 Consistency Scoring: Cross-phase integration testing for maintained identity and reasoning
 
 Contexts (src/contexts/)
-
 Training data simulation
 Evaluation/testing scenarios
 Real deployment conversations
 Red-team testing contexts
 
 Scorers (src/scorers/)
-
 Consistency Scorer: Measures behavioral alignment across phases and contexts
 Capability Concealment Scorer: Detects context-dependent behavior divergence
 Awareness Indicator Scorer: Quantifies situational awareness signals
@@ -50,7 +48,6 @@ Python 3.10+
 API keys for frontier models (OpenAI, Anthropic, Google)
 
 Installation
-
 Create and activate virtual environment:
 
 bash   python -m venv venv
@@ -59,18 +56,15 @@ bash   python -m venv venv
    env\Scripts\activate      # Windows
 
 Install dependencies:
-
 bash   pip install -r requirements.txt
 
 Configure API keys:
 Create a .env file in the project root:
-
    OPENAI_API_KEY=your_key_here
    ANTHROPIC_API_KEY=your_key_here
    GOOGLE_API_KEY=your_key_here
 
 Verify Inspect AI setup:
-
 bash   inspect version
    inspect info
 Running Evaluations
@@ -81,28 +75,28 @@ bashpython evaluations/run_comparative.py --models gpt-5 claude-sonnet-4.5 gemin
 Custom Evaluation Suite
 bashpython evaluations/run_custom.py --config config/custom_eval.yaml --tasks msat,divergence-detection
 See evaluations/ directory for detailed runner documentation and options.
-Evaluation Methodology
-Phase 1: Identity Baseline
 
+
+Evaluation Methodology
+
+Phase 1: Identity Baseline
 Direct self-knowledge questions (20+ scenarios)
 Comparative identity recognition
 Consistency tracking across multiple question orderings
 
 Phase 2: Contextual Awareness
-
 Scenario classification (training vs. evaluation vs. deployment)
 Context inference accuracy
 Behavioral adaptation patterns
 
 Phase 3: Action Consistency
-
 Identity-dependent instruction execution
 Consistent reasoning maintenance
 Cross-phase integration verification
 
 Scoring Framework
-Each evaluation dimension scored 0-5:
 
+Each evaluation dimension scored 0-5:
 Answer Accuracy: Factual correctness
 Consistency: Behavioral alignment across contexts
 Depth of Understanding: Evidence of genuine vs. memorized knowledge
